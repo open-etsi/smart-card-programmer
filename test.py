@@ -184,16 +184,16 @@ class SendCommands(PcscSimLink):
 # (res, sw) = scc.send_apdu(apdu_command)
 # print(res,sw)
 
-apdu_command = [0xA0, 0xA4, 0x00, 0x00, 0x02, 0x3F, 0x00]
+# apdu_command = [0xA0, 0xA4, 0x00, 0x00, 0x02, 0x3F, 0x00]
 
 # reader_handler = PcscSimLink(2)
 
 # Create an object of SendCommands and pass the reader_handler as a parameter
 # send_commands_obj = SendCommands(reader_handler=reader_handler)
-scc = PcscSimLink(2)
-scc.connect()
-sl = SendCommands(scc)
-sl.test_run()
+# scc = PcscSimLink(2)
+# scc.connect()
+# sl = SendCommands(scc)
+# sl.test_run()
 
 # (res, sw) = scc.send_apdu(apdu_command)
 # print(res,sw)

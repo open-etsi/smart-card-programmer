@@ -18,27 +18,27 @@ from pySim.exceptions import NoCardError, ProtocolError, ReaderError
 from pySim.transport import LinkBase
 from pySim.utils import h2i, i2h
 from functools import wraps
-from message import message
+from stc_gui.stc_view.stc_view.message import message
 import time
 
 LOGS_PATH = "logs.txt"
 
 
-def timeit(func):
-    @wraps(func)
-    def timeit_wrapper(*args, **kwargs):
-        start_time = time.perf_counter()
-        result = func(*args, **kwargs)
-        end_time = time.perf_counter()
-        total_time = end_time - start_time
-        # first item in the args, ie `args[0]` is `self`
-        rtn_str = (
-            f"Function {func.__name__}{args} {kwargs} Took {total_time:.4f} seconds"
-        )
-        print(rtn_str)
-        return result, rtn_str
+# def timeit(func):
+#     @wraps(func)
+#     def timeit_wrapper(*args, **kwargs):
+#         start_time = time.perf_counter()
+#         result = func(*args, **kwargs)
+#         end_time = time.perf_counter()
+#         total_time = end_time - start_time
+#         # first item in the args, ie `args[0]` is `self`
+#         rtn_str = (
+#             f"Function {func.__name__}{args} {kwargs} Took {total_time:.4f} seconds"
+#         )
+#         print(rtn_str)
+#         return result, rtn_str
 
-    return timeit_wrapper
+#     return timeit_wrapper
 
 
 def str_2_hex_converter(apdu_command):
@@ -146,15 +146,6 @@ class PcscSimLink(LinkBase):
 
         # Return value
         return i2h(data), i2h(sw)
-
-    # @staticmethod
-    # def calculate_something(num, text_edit):
-    #     start_time = time.perf_counter()
-    #     total = sum((x for x in range(0, num**2)))
-    #     end_time = time.perf_counter()
-    #     execution_time = end_time - start_time
-    #     text_edit.append(f'Function calculate_something({num}) Took {execution_time:.4f} seconds')
-    #     return total
 
     #    @staticmethod
     def run_script(self, path):

@@ -2,7 +2,6 @@ from pySim.commands import SimCardCommands
 from pySim.transport import init_reader, argparse_add_reader_args
 from pySim.exceptions import SwMatchError
 
-# from smartcard.util import toHexString,toBytes,toASCIIString,toASCIIBytes,HexListToBinString,BinStringToHexList
 import string
 from smartcard.CardConnection import CardConnection
 from smartcard.CardRequest import CardRequest
@@ -22,23 +21,6 @@ from stc_gui.stc_view.stc_view.message import message
 import time
 
 LOGS_PATH = "logs.txt"
-
-
-# def timeit(func):
-#     @wraps(func)
-#     def timeit_wrapper(*args, **kwargs):
-#         start_time = time.perf_counter()
-#         result = func(*args, **kwargs)
-#         end_time = time.perf_counter()
-#         total_time = end_time - start_time
-#         # first item in the args, ie `args[0]` is `self`
-#         rtn_str = (
-#             f"Function {func.__name__}{args} {kwargs} Took {total_time:.4f} seconds"
-#         )
-#         print(rtn_str)
-#         return result, rtn_str
-
-#     return timeit_wrapper
 
 
 def str_2_hex_converter(apdu_command):
@@ -316,109 +298,3 @@ class PcscSimLink(LinkBase):
     def dec_list_2_hex_str(self, dec_list):
         string = " ".join(list(map(lambda x: format(x, "02X").upper(), dec_list)))
         return string
-
-
-# scc=PcscSimLink()
-# # #scc.connect()
-# # print(scc.refresh_hid_list())
-# scc.custom_connect(2)
-# path="scripts/commands.txt"
-# PcscSimLink.run_script(scc,path)
-# PcscSimLink.run_script(scc,path)
-# ATR= [59, 159, 150, 128, 31, 135, 128, 49, 224, 115, 254, 33, 25, 103, 85, 84, 48, 48, 53, 2, 88, 252]
-# print(dec_list_2_hex_str(ATR))
-
-#     @staticmethod
-#     def run_script(self,path):
-#         debug=True
-
-#         try:
-#             start_time = time.perf_counter()
-#             with open(path, "r") as f:
-#                 apdu_commands = f.readlines()
-
-#             with open(log_path, "a+") as log_file:
-
-#                 _ok=True
-#                 for command in apdu_commands:
-#                     if _ok is True:
-
-#                         command=command.replace("\n","")
-#                         command=command.replace(" ","") #to remove spaces
-#                         if command.startswith("#") or command.startswith("//") or command.startswith("/"):
-#                             pass
-#                         else:
-#                             if self.is_valid_apdu(command):
-#                                 command,resp_2_verify,error_flag=self.break_cmd_res(command)
-
-#                                 (response, sw) = self.send_apdu(command)
-#                                 response=response.upper()
-#                                 sw=sw.upper()
-
-#                                 cmd=f"CMD: {command.strip()}"
-#                                 res=f"RES: [{response}]"
-# #                                sw_disp=f"SW: {sw}"
-#                                 res_verify="SW: {} Expected: {}".format(sw,resp_2_verify)
-#                                 log_file.write(cmd+"\n")
-#                                 log_file.write(res+"\n")
-#                                 log_file.write(res_verify+"\n")
-#                                 log_file.write("\n")
-
-#                                 if debug:
-#                                     print(cmd)
-#                                     print(res)
-#                                     print(res_verify)
-
-
-#                                 self.textEdit.append(cmd)
-#                                 self.textEdit.append(res)
-#                                 self.textEdit.append(res_verify)
-#                                 self.textEdit.append("")
-
-#                                 _ok=self.error_check(sw,resp_2_verify,error_flag,log_file)
-#                                 log_file.write("\n")
-
-
-#                             elif command.lower() == "reset" or command.lower() == "rst":
-#                                 if self.reset_card():
-#                                     response=self.get_atr()
-#                                     cmd=f"CMD: {command.strip()}"
-#                                     res=f"ATR: {self.dec_list_2_hex_str(response)}"
-
-#                                     log_file.write(cmd+"\n")
-#                                     log_file.write(res+"\n")
-#                                     log_file.write("\n")
-
-#                                     if debug:
-#                                         print(cmd)
-#                                         print("CARD RESET")
-#                                         print(res)
-
-#                                     self.textEdit.append(cmd)
-#                                     self.textEdit.append(res)
-#                                     self.textEdit.append("")  # for spare line
-
-#                             elif command==" ":
-#                                 cmd=f"CMD: {command.strip()}"
-
-#                                 log_file.write(cmd+"\n")
-#                                 log_file.write("\n")
-
-#                                 if debug:
-#                                     print(cmd)
-#                                     print("Invalid")
-
-#                                 self.textEdit.append(cmd)
-#                                 self.textEdit.append("")  # for spare line
-
-
-#                             else:
-#                                 pass
-#             end_time = time.perf_counter()
-#             execution_time = end_time - start_time
-#             self.textEdit.append(f'Script({path}) Took {execution_time:.4f} seconds\n')
-# #            log_file.write(f'Script({path}) Took {execution_time:.4f} seconds\n')
-
-#         except Exception as e:
-#             self.textEdit.append(str(e))
-#             pass

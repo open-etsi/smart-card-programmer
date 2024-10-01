@@ -21,6 +21,7 @@ class MainWindow(QMainWindow):
 
         self.showMaximized()
         self.scc = PcscSimLink(self.ui.textEdit)
+
         self.devices = self.scc.refresh_hid_list()
 
         self.ui.reader_connection.clicked.connect(self.connect_to_reader)

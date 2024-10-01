@@ -2,13 +2,13 @@
 import time
 import os
 import sys
-from connection import PcscSimLink
+from stc_connector.stc_connector.connection import PcscSimLink
+from stc_gui.stc_gui.main_ui import Ui_MainWindow
+
 from PyQt6.QtGui import QIcon
 from PyQt6.QtWidgets import QApplication, QMainWindow, QFileDialog, QTextEdit
-from forms.main_ui import Ui_MainWindow
 
 debug = False
-from connection import PcscSimLink
 
 
 class MainWindow(QMainWindow):

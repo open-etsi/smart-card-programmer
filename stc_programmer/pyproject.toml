@@ -1,14 +1,13 @@
 [tool.poetry]
-name = "pysim-custom"
+name = "stc-programmer"
 version = "0.1.0"
-description = "Use generic pySim"
+description = ""
 authors = ["Hamza Qureshi <hamza7771.861@gmail.com>"]
 readme = "README.md"
-packages = [{ include = "pysim" }]
 
 [tool.poetry.dependencies]
-python = "3.11.5"
-pysim = "^2.4.0"
+python = "^3.10"
+
 
 [build-system]
 requires = ["poetry-core"]

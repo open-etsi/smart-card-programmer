@@ -1,5 +1,5 @@
-from pySim.commands import SimCardCommands
-from pySim.transport import init_reader, argparse_add_reader_args
+# from pySim.commands import SimCardCommands
+# from pySim.transport import init_reader
 from pySim.exceptions import SwMatchError
 
 import string
@@ -16,7 +16,8 @@ from smartcard.System import readers
 from pySim.exceptions import NoCardError, ProtocolError, ReaderError
 from pySim.transport import LinkBase
 from pySim.utils import h2i, i2h
-from functools import wraps
+
+# from functools import wraps
 from stc_gui.stc_view.stc_view.message import message
 import time
 

@@ -1,4 +1,4 @@
-SmartCardProgrammer - Read, Write and Browse Programmable SIM/USIM Cards
+Smart Card Programmer - Read, Write and Browse Programmable SIM/USIM Cards
 ========================================================================
 
 <!DOCTYPE html>

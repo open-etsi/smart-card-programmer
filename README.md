@@ -45,7 +45,6 @@ Smart Card Programmer - Read, Write and Browse Programmable SIM/USIM Cards
   <li>Sending APDU commands to smart cards</li>
   <li>Reading card data</li>
   <li>Writing data to cards</li>
-  <li>Managing multiple cards</li>
 </ul>
 
 </body>
